@@ -27,7 +27,13 @@ bind action1 action2 = do
     action2 x
 
 
+blindBind :: IO a -> IO b -> IO b
+blindBind action1 action2 =
+    bind action1 (\_ -> action2)
+
+
 main :: IO ()
 main =
-  askUser `bind`
-  (print . (1+) . sum)
+  (askUser `bind` (\list ->
+  (print . (2+) . sum) list)) `blindBind`
+  (putStrLn "That was fun...")
