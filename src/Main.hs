@@ -1,9 +1,6 @@
-import BasicMonads
+import MaybeMonad (mainMaybeMonad)
 
 
 main = do
     putStrLn "Hello from the main module!"
-    basicMonadsMain1
-    basicMonadsMain2
-    basicMonadsMain3
-    
+    mainMaybeMonad
